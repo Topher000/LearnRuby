@@ -15,3 +15,5 @@ end
 puts('What number would you like to convert to a Roman Numeral?')
 user = gets.chomp
 puts(old_roman_numeral(user.to_i))
+
+puts 4/1

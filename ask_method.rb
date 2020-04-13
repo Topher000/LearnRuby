@@ -6,9 +6,9 @@ def ask question
 
         if (reply =='yes' || reply == 'no')
             if reply == 'yes'
-                answer = true
+                return true
             else
-                answer = false
+                return false
             end
             break
         else
@@ -16,15 +16,15 @@ def ask question
         end
     end
 
-    return # this is what we return (true / false)
+    
 end
 
-puts 'Hello, and thank you for...'
-puts
+puts 'Hello, and thank you for participating in this experiement'
+puts 'Please answer these questions honestlly'
 
 ask 'Do you like eating tacos?'
 ask 'Do you like eating burritos?'
-wets_bed = ask 'Do you wet the bead?'
+wets_bed = ask 'Do you wet the bed?'
 ask 'Do you like eating chimichangas?'
 ask 'Do you like eating sopapillas?'
 puts 'Just a few more questions..'
@@ -33,6 +33,10 @@ ask 'Do you like eating flautas?'
 
 puts
 puts 'DEBRIEFING:'
-puts 'Thank you for...'
+puts 'Thank you for your time'
 puts
-puts wets_bed
+if wets_bed == true
+    puts 'It looks like you "do" wet the bed'
+else    
+    puts 'It looks like you "don\'t" wet the bed'
+end
