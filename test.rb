@@ -1,21 +1,20 @@
-# Sorthing method for words from an array
-def sort some_array # This "wraps" recursive_sort
-    recursive_sort some_array, []
-end
+num = [1, 45, 98, 32, 43, 49]
 
-def recursive_sort unsorted_array, sorted_array
-    #My code
-end
+letters = ['a', 'b', 'c']
 
-
-
-puts 'cat' > 'dog'
-puts 'kristopher' > 'marjorie'
+puts letters.max
+puts num.max
+puts num.sum
 puts
 
-pract = ['zeppin', 'apple']
+def count_meth num
+    max = num.max
+    min = num.min
+    sum = num.sum
+    mean = sum/num.length
+    puts 'Max number ' + max.to_s
+    puts 'Minumum number ' + min.to_s
+    puts 'Mean number ' + mean.to_s
+end
 
-if pract[0] < pract [1]
-    puts pract[0]
-else
-    puts pract[1]
+count_meth num
