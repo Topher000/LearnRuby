@@ -1,20 +1,29 @@
-num = [1, 45, 98, 32, 43, 49]
+# moves jpg files
+Dir.chdir 'C:/Users/Kristopher/Tophers-Stuff/NewImag'
 
-letters = ['a', 'b', 'c']
+# Find pictures to be moved
+pic_names = Dir['C:/Users/Kristopher/Tophers-Stuff/Images/*.JPG']
 
-puts letters.max
-puts num.max
-puts num.sum
+puts 'What would you like to call this batch?'
+batch_name = gets.chomp
+
 puts
+print "Downloading #{pic_names.length} files:  "
 
-def count_meth num
-    max = num.max
-    min = num.min
-    sum = num.sum
-    mean = sum/num.length
-    puts 'Max number ' + max.to_s
-    puts 'Minumum number ' + min.to_s
-    puts 'Mean number ' + mean.to_s
+pic_number = 1
+
+pic_names.each do |name|
+    print '.' # progress bar
+    new_name = if pic_number < 10 
+        "#{batch_name}0#{pic_number}.jpg"
+    else
+        "#{batch_name}#{pic_number}.jpg"
+    end
+
+    File.rename name, new_name
+
+    pic_number = pic_number + 1
 end
 
-count_meth num
+puts
+puts 'Done'

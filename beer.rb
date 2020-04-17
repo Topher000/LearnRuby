@@ -1,6 +1,6 @@
 
 
-num_at_start = 5000
+num_at_start = 100
 num_now = num_at_start
 
 while num_now > 2
