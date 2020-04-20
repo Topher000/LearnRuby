@@ -1,29 +1,32 @@
-# moves jpg files
-Dir.chdir 'C:/Users/Kristopher/Tophers-Stuff/NewImag'
 
-# Find pictures to be moved
-pic_names = Dir['C:/Users/Kristopher/Tophers-Stuff/Images/*.JPG']
 
-puts 'What would you like to call this batch?'
-batch_name = gets.chomp
+rom = {
+    "I" => 1,
+    "V" => 5,
+    "X" => 10,
+    "L" => 50,
+    "C" => 100,
+    "D" => 500,
+    "M" => 1000
+}
 
-puts
-print "Downloading #{pic_names.length} files:  "
 
-pic_number = 1
+# gets number
+puts'Enter a rom number'
+rom_num = gets.chomp.upcase
 
-pic_names.each do |name|
-    print '.' # progress bar
-    new_name = if pic_number < 10 
-        "#{batch_name}0#{pic_number}.jpg"
+
+# while loop
+length = rom_num.length - 1
+int_num = 0
+
+# just have it * -1 if it isn't what works
+while length >= 0
+    if rom[rom_num[length]] < rom[rom_num[length - 1]]
+        int_num = int_num + rom[rom_num[length]]
+        length = length - 1
     else
-        "#{batch_name}#{pic_number}.jpg"
-    end
 
-    File.rename name, new_name
-
-    pic_number = pic_number + 1
 end
 
-puts
-puts 'Done'
+puts int_num
