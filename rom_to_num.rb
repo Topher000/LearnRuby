@@ -1,31 +1,49 @@
 
+def rom_to_num rom_num
 
-rom = {
-    "I" => 1,
-    "V" => 5,
-    "X" => 10,
-    "L" => 50,
-    "C" => 100,
-    "D" => 500,
-    "M" => 1000
-}
+    rom = {
+        "I" => 1,
+        "V" => 5,
+        "X" => 10,
+        "L" => 50,
+        "C" => 100,
+        "D" => 500,
+        "M" => 1000}
+    # while loop
+    rom_num = rom_num.upcase
+    length = rom_num.length - 1
+    var = 0
+    int_num = 0
+    last = 0
+    v = 0
+    v = rom_num[length]
+    num = rom[v]
+    if !num
+        puts 'Not a vaild roman number'
+        exit
+    end  
+    
+    while length >= 0
+        # v calls the letter
+        v = rom_num[length]
+        num = rom[v]
+        
+    
+        if num < last
+            var = num * -1
+        else
+            var = num
+            last = num
+        end
+        int_num = int_num + var
+        length = length -1
+        
+    end
+    int_num
+end
 
 
 # gets number
-puts'Enter a rom number'
-rom_num = gets.chomp.upcase
-
-count = rom_num.length - 1
-addition = 0
-
-# start a while loop to run through this string
-while count >= 0 
-    test1 = rom[rom_num[count]]
-
-    # subtrac 1 to count
-    count = count - 1
-    
-    
-end
-# converts number to integer
-puts test1
+puts 'What roman number would you live to convert to a number?'
+input = gets.chomp
+puts(rom_to_num(input))
