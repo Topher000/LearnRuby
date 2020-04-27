@@ -34,18 +34,18 @@ class OrangeTree
     def one_year_passes
         # check years of tree
         if @years_old < 20
-            @years_old + 1
+            @years_old = @years_old + 1
         else
             puts "Your tree is #{@years_old} years old and has died. Time to plant another tree"
             exit
         end
         # add height to the tree if it is less than 30 feet high
         if @height < 30
-            @height + 3
+            @height = @height + 2
         end
         # adds fruit to the tree each year after three years
         if @years_old >= 3
-            @fruit = 3
+            @fruit = 3 * @years_old
         end
     end
 
@@ -54,9 +54,23 @@ class OrangeTree
 end
 
 tree = OrangeTree.new
-tree.tree_height
-tree.one_year_passes
-tree.one_year_passes
-tree.one_year_passes
-tree.count_the_oranges
-tree.tre
+puts 'Welcome to your orange tree enter one of thees tasks:'
+puts '"height", "count", "pick", "grow" (Push enter to quit'
+
+while true
+    action = gets.chomp
+    if action == 'height'
+        tree.tree_height
+    elsif action == 'count'
+        tree.count_the_oranges
+    elsif action == 'pick'
+        tree.pick_fruit
+    elsif action == 'grow'
+        tree.one_year_passes
+    elsif action == ''
+        puts 'Thanks for playing!'
+        exit
+    end
+
+    
+end
